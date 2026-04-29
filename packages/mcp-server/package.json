@@ -5,7 +5,7 @@
     "type": "module",
     "main": "dist/index.js",
     "bin": {
-        "draw-in-mcp": "./dist/index.js"
+        "draw-in-mcp": "dist/index.js"
     },
     "scripts": {
         "build": "tsc",
@@ -25,7 +25,7 @@
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Hoooxz/draw-in",
+        "url": "git+https://github.com/Hoooxz/draw-in.git",
         "directory": "packages/mcp-server"
     },
     "homepage": "https://github.com/Hoooxz/draw-in/tree/main/packages/mcp-server",
