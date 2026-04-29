@@ -5,7 +5,7 @@ import { allowPrivateUrls, isPrivateUrl } from "@/lib/ssrf-protection"
 
 const MAX_CONTENT_LENGTH = 150000 // Match PDF limit
 const EXTRACT_TIMEOUT_MS = 15000
-const USER_AGENT = "Mozilla/5.0 (compatible; NextAIDrawio/1.0)"
+const USER_AGENT = "Mozilla/5.0 (compatible; DrawIn/1.0)"
 
 export async function POST(req: Request) {
     try {
@@ -85,7 +85,7 @@ export async function POST(req: Request) {
             clearTimeout(timeoutId)
         }
 
-        if (!article || !article.content) {
+        if (!article?.content) {
             return NextResponse.json(
                 { error: "Could not extract content from URL" },
                 { status: 400 },

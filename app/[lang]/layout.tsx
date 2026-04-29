@@ -4,6 +4,7 @@ import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google"
 import { notFound } from "next/navigation"
 import { DiagramProvider } from "@/contexts/diagram-context"
 import { DictionaryProvider } from "@/hooks/use-dictionary"
+import { APP_NAME, getPublicSiteUrl, getPublicUrl } from "@/lib/branding"
 import type { Locale } from "@/lib/i18n/config"
 import { i18n } from "@/lib/i18n/config"
 import { getDictionary, hasLocale } from "@/lib/i18n/dictionaries"
@@ -47,10 +48,10 @@ export async function generateMetadata({
 
     // Default to English metadata
     const titles: Record<Locale, string> = {
-        en: "Next AI Draw.io - AI-Powered Diagram Generator",
-        zh: "Next AI Draw.io - AI powered diagram generator",
-        ja: "Next AI Draw.io - AI-powered diagram generator",
-        "zh-Hant": "Next AI Draw.io - AI 驅動的圖表產生器",
+        en: `${APP_NAME} - AI-Powered Diagram Generator`,
+        zh: `${APP_NAME} - AI powered diagram generator`,
+        ja: `${APP_NAME} - AI-powered diagram generator`,
+        "zh-Hant": `${APP_NAME} - AI 驅動的圖表產生器`,
     }
 
     const descriptions: Record<Locale, string> = {
@@ -60,6 +61,10 @@ export async function generateMetadata({
         "zh-Hant":
             "使用 AI 建立 AWS 架構圖、流程圖和技術圖表。免費線上工具整合 draw.io 與 AI 輔助，輕鬆建立專業圖表。",
     }
+
+    const siteUrl = getPublicSiteUrl()
+    const rootUrl = getPublicUrl()
+    const ogImageUrl = getPublicUrl("/architecture.png")
 
     return {
         title: titles[lang],
@@ -75,16 +80,16 @@ export async function generateMetadata({
             "free diagram generator",
             "online diagram maker",
         ],
-        authors: [{ name: "Next AI Draw.io" }],
-        creator: "Next AI Draw.io",
-        publisher: "Next AI Draw.io",
-        metadataBase: new URL("https://next-ai-drawio.jiang.jp"),
+        authors: [{ name: APP_NAME }],
+        creator: APP_NAME,
+        publisher: APP_NAME,
+        ...(siteUrl && { metadataBase: new URL(siteUrl) }),
         openGraph: {
             title: titles[lang],
             description: descriptions[lang],
             type: "website",
-            url: "https://next-ai-drawio.jiang.jp",
-            siteName: "Next AI Draw.io",
+            ...(rootUrl && { url: rootUrl }),
+            siteName: APP_NAME,
             locale:
                 lang === "zh"
                     ? "zh_CN"
@@ -93,20 +98,22 @@ export async function generateMetadata({
                       : lang === "ja"
                         ? "ja_JP"
                         : "en_US",
-            images: [
-                {
-                    url: "/architecture.png",
-                    width: 1200,
-                    height: 630,
-                    alt: "Next AI Draw.io - AI-powered diagram creation tool",
-                },
-            ],
+            ...(ogImageUrl && {
+                images: [
+                    {
+                        url: ogImageUrl,
+                        width: 1200,
+                        height: 630,
+                        alt: `${APP_NAME} - AI-powered diagram creation tool`,
+                    },
+                ],
+            }),
         },
         twitter: {
             card: "summary_large_image",
             title: titles[lang],
             description: descriptions[lang],
-            images: ["/architecture.png"],
+            ...(ogImageUrl && { images: [ogImageUrl] }),
         },
         robots: {
             index: true,
@@ -120,7 +127,10 @@ export async function generateMetadata({
             },
         },
         icons: {
-            icon: "/favicon.ico",
+            icon: [
+                { url: "/favicon.ico" },
+                { url: "/favicon.svg", type: "image/svg+xml" },
+            ],
         },
         alternates: {
             languages: {
@@ -144,16 +154,17 @@ export default async function RootLayout({
     if (!hasLocale(lang)) notFound()
     const validLang = lang as Locale
     const dictionary = await getDictionary(validLang)
+    const rootUrl = getPublicUrl()
 
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        name: "Next AI Draw.io",
+        name: APP_NAME,
         applicationCategory: "DesignApplication",
         operatingSystem: "Web Browser",
         description:
             "AI-powered diagram generator with targeted XML editing capabilities that integrates with draw.io for creating AWS architecture diagrams, flowcharts, and technical diagrams. Features diagram history, multi-provider AI support, and real-time collaboration.",
-        url: "https://next-ai-drawio.jiang.jp",
+        ...(rootUrl && { url: rootUrl }),
         inLanguage: validLang,
         offers: {
             "@type": "Offer",

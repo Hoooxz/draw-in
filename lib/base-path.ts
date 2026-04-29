@@ -2,10 +2,10 @@
  * Get the base path for API calls and static assets
  * This is used for subdirectory deployment support
  *
- * Example: If deployed at https://example.com/nextaidrawio, this returns "/nextaidrawio"
+ * Example: If deployed at https://example.com/draw-in, this returns "/draw-in"
  * For root deployment, this returns ""
  *
- * Set NEXT_PUBLIC_BASE_PATH environment variable to your subdirectory path (e.g., /nextaidrawio)
+ * Set NEXT_PUBLIC_BASE_PATH environment variable to your subdirectory path (e.g., /draw-in)
  */
 export function getBasePath(): string {
     // Read from environment variable (must start with NEXT_PUBLIC_ to be available on client)

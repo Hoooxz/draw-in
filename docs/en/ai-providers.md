@@ -1,6 +1,6 @@
 # AI Provider Configuration
 
-This guide explains how to configure different AI model providers for next-ai-draw-io.
+This guide explains how to configure different AI model providers for draw-in.
 
 ## Quick Start
 
@@ -12,8 +12,6 @@ This guide explains how to configure different AI model providers for next-ai-dr
 ## Supported Providers
 
 ### Doubao (ByteDance Volcengine)
-
-> **Free tokens**: Register on the [Volcengine ARK platform](https://www.volcengine.com/activity/codingplan?ac=MMAP8JTTCAQ2&rc=Z9Z3LDTJ&utm_campaign=drawio&utm_content=drawio&utm_medium=devrel&utm_source=OWO&utm_term=drawio) to get 500K free tokens for all models!
 
 ```bash
 DOUBAO_API_KEY=your_api_key

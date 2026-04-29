@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MCP Server for Next AI Draw.io
+ * MCP Server for Draw In
  *
  * Enables AI agents (Claude Desktop, Cursor, etc.) to generate and edit
  * draw.io diagrams with real-time browser preview.
@@ -61,7 +61,7 @@ let currentSession: {
 
 // Create MCP server
 const server = new McpServer({
-    name: "next-ai-drawio",
+    name: "draw-in",
     version: "0.1.2",
 })
 
@@ -744,7 +744,7 @@ process.stdout.on("error", (err) => {
 
 // Start the MCP server
 async function main() {
-    log.info("Starting MCP server for Next AI Draw.io (embedded mode)...")
+    log.info("Starting MCP server for Draw In (embedded mode)...")
 
     const transport = new StdioServerTransport()
     await server.connect(transport)

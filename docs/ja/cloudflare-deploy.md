@@ -86,7 +86,7 @@ export default defineCloudflareConfig({})
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
-  "name": "next-ai-draw-io-worker",
+  "name": "draw-in-worker",
   "compatibility_date": "2025-12-08",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
@@ -96,7 +96,7 @@ export default defineCloudflareConfig({})
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
-      "service": "next-ai-draw-io-worker"
+      "service": "draw-in-worker"
     }
   ]
 }
@@ -114,7 +114,7 @@ R2 を使用すると **Incremental Static Regeneration (ISR)** キャッシュ�
 
 - **Storage & Databases → R2** へ移動
 - **Create bucket** をクリック
-- 名前を入力: `next-inc-cache`
+- 名前を入力: `draw-in-inc-cache`
 
 **2. `open-next.config.ts` の設定:**
 
@@ -133,7 +133,7 @@ export default defineCloudflareConfig({
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
-  "name": "next-ai-draw-io-worker",
+  "name": "draw-in-worker",
   "compatibility_date": "2025-12-08",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
@@ -143,13 +143,13 @@ export default defineCloudflareConfig({
   "r2_buckets": [
     {
       "binding": "NEXT_INC_CACHE_R2_BUCKET",
-      "bucket_name": "next-inc-cache"
+      "bucket_name": "draw-in-inc-cache"
     }
   ],
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
-      "service": "next-ai-draw-io-worker"
+      "service": "draw-in-worker"
     }
   ]
 }

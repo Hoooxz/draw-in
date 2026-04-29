@@ -45,10 +45,10 @@ import { ChatMessageDisplay } from "./chat-message-display"
 import { DevXmlSimulator } from "./dev-xml-simulator"
 
 // localStorage keys for persistence
-const STORAGE_SESSION_ID_KEY = "next-ai-draw-io-session-id"
+const STORAGE_SESSION_ID_KEY = "draw-in-session-id"
 
 // sessionStorage keys
-const SESSION_STORAGE_INPUT_KEY = "next-ai-draw-io-input"
+const SESSION_STORAGE_INPUT_KEY = "draw-in-input"
 
 // Type for message parts (tool calls and their states)
 interface MessagePart {
@@ -1318,7 +1318,7 @@ export default function ChatPanel({
                                         ? "/favicon-white.svg"
                                         : "/favicon.ico"
                                 }
-                                alt="Next AI Drawio"
+                                alt="Draw In"
                                 width={isMobile ? 24 : 28}
                                 height={isMobile ? 24 : 28}
                                 className="rounded flex-shrink-0"
@@ -1326,7 +1326,7 @@ export default function ChatPanel({
                             <h1
                                 className={`${isMobile ? "text-sm" : "text-base"} font-semibold tracking-tight whitespace-nowrap`}
                             >
-                                Next AI Drawio
+                                Draw In
                             </h1>
                         </div>
                     </button>

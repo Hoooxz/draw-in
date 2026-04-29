@@ -191,17 +191,15 @@
         "tpmLimit": "速率限制",
         "tpmMessage": "请求过多。请稍等片刻。",
         "tpmMessageDetailed": "达到速率限制（{limit} 令牌/分钟）。请等待 {seconds} 秒后再发送请求。",
-        "messageApi": "看来您今天的体验次数已达上限。非常高兴您玩得开心，虽然本项目由字节跳动豆包慷慨赞助，但为了确保大家都能公平使用，我们不得不对使用量做一点小小的限制。",
+        "messageApi": "看来您今天的请求次数已达上限。请配置自己的模型服务商，或自托管 Draw In 使用自己的额度。",
         "messageApiSelfHosted": null,
-        "messageToken": "看来您今天的 Token 用量已达上限。非常高兴您玩得开心，虽然本项目由字节跳动豆包慷慨赞助，但为了确保大家都能公平使用，我们不得不对使用量做一点小小的限制。",
+        "messageToken": "看来您今天的 Token 用量已达上限。请配置自己的模型服务商，或自托管 Draw In 使用自己的额度。",
         "messageTokenSelfHosted": null,
         "tip": "<strong>提示：</strong>您可以使用自己的 API 密钥（点击设置图标）或自托管项目来绕过这些限制。",
         "tipSelfHosted": "<strong>提示：</strong>您可以在设置中配置自己的 API 密钥以继续使用服务。",
         "reset": "您的限制将在明天重置。感谢您的理解。",
-        "doubaoSponsorship": "<a href=\"{link}\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:text-foreground\">点击此处注册</a>可获得每个模型 50 万免费 Token（包括豆包、DeepSeek 和 Kimi），然后在模型设置中配置您的 API Key。",
         "configModel": "使用您的密钥",
         "selfHost": "自托管",
-        "sponsor": "赞助",
         "learnMore": "了解更多 →",
         "usedOf": "{used}/{limit}"
     },
@@ -248,9 +246,8 @@
         "successMessage": "成功显示图表。"
     },
     "about": {
-        "modelChange": "模型变更与用量限制",
+        "modelChange": "模型设置与用量限制",
         "walletCrying": "（别名：我的钱包顶不住了）",
-        "seekingSponsorship": "寻求赞助（求大佬捞一把）",
         "contactMe": "联系我",
         "usageNotice": "由于使用量过高，我已将模型从 Claude 更换为 minimax-m2，并设置了一些用量限制。详情请查看关于页面。"
     },

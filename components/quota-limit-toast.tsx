@@ -1,6 +1,6 @@
 "use client"
 
-import { Coffee, Settings, X } from "lucide-react"
+import { Gauge, Settings, X } from "lucide-react"
 import type React from "react"
 import { FaGithub } from "react-icons/fa"
 import { useDictionary } from "@/hooks/use-dictionary"
@@ -65,7 +65,7 @@ export function QuotaLimitToast({
             {/* Title row with icon */}
             <div className="flex items-center gap-2.5 mb-3 pr-6">
                 <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-                    <Coffee
+                    <Gauge
                         className="w-4 h-4 text-accent-foreground"
                         strokeWidth={2}
                     />
@@ -85,18 +85,6 @@ export function QuotaLimitToast({
             {/* Message */}
             <div className="text-sm text-muted-foreground leading-relaxed mb-4 space-y-2">
                 <p>{quotaMessage}</p>
-                {!isSelfHosted && (
-                    <p
-                        dangerouslySetInnerHTML={{
-                            __html: formatMessage(
-                                dict.quota.doubaoSponsorship,
-                                {
-                                    link: "https://www.volcengine.com/activity/codingplan?ac=MMAP8JTTCAQ2&rc=Z9Z3LDTJ&utm_campaign=drawio&utm_content=drawio&utm_medium=devrel&utm_source=OWO&utm_term=drawio",
-                                },
-                            ),
-                        }}
-                    />
-                )}
                 <p
                     dangerouslySetInnerHTML={{
                         __html: tipHtml,
@@ -120,26 +108,15 @@ export function QuotaLimitToast({
                     </button>
                 )}
                 {!isSelfHosted && (
-                    <>
-                        <a
-                            href="https://github.com/DayuanJiang/next-ai-draw-io"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-border text-foreground hover:bg-muted transition-colors"
-                        >
-                            <FaGithub className="w-3.5 h-3.5" />
-                            {dict.quota.selfHost}
-                        </a>
-                        <a
-                            href="https://github.com/sponsors/DayuanJiang"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-border text-foreground hover:bg-muted transition-colors"
-                        >
-                            <Coffee className="w-3.5 h-3.5" />
-                            {dict.quota.sponsor}
-                        </a>
-                    </>
+                    <a
+                        href="https://github.com/Hoooxz/draw-in"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-border text-foreground hover:bg-muted transition-colors"
+                    >
+                        <FaGithub className="w-3.5 h-3.5" />
+                        {dict.quota.selfHost}
+                    </a>
                 )}
             </div>
         </div>

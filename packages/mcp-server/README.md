@@ -1,4 +1,4 @@
-# Next AI Draw.io MCP Server
+# Draw In MCP Server
 
 MCP (Model Context Protocol) server that enables AI agents like Claude Desktop and Cursor to generate and edit draw.io diagrams with **real-time browser preview**.
 
@@ -9,9 +9,9 @@ MCP (Model Context Protocol) server that enables AI agents like Claude Desktop a
 ```json
 {
   "mcpServers": {
-    "drawio": {
+    "draw-in": {
       "command": "npx",
-      "args": ["@next-ai-drawio/mcp-server@latest"]
+      "args": ["@draw-in/mcp-server@latest"]
     }
   }
 }
@@ -26,9 +26,9 @@ Add to your Claude Desktop config (`~/Library/Application Support/Claude/claude_
 ```json
 {
   "mcpServers": {
-    "drawio": {
+    "draw-in": {
       "command": "npx",
-      "args": ["@next-ai-drawio/mcp-server@latest"]
+      "args": ["@draw-in/mcp-server@latest"]
     }
   }
 }
@@ -41,9 +41,9 @@ Add to your VS Code settings (`.vscode/mcp.json` in workspace or user settings):
 ```json
 {
   "mcpServers": {
-    "drawio": {
+    "draw-in": {
       "command": "npx",
-      "args": ["@next-ai-drawio/mcp-server@latest"]
+      "args": ["@draw-in/mcp-server@latest"]
     }
   }
 }
@@ -56,9 +56,9 @@ Add to Cursor MCP config (`~/.cursor/mcp.json`):
 ```json
 {
   "mcpServers": {
-    "drawio": {
+    "draw-in": {
       "command": "npx",
-      "args": ["@next-ai-drawio/mcp-server@latest"]
+      "args": ["@draw-in/mcp-server@latest"]
     }
   }
 }
@@ -69,14 +69,14 @@ Add to Cursor MCP config (`~/.cursor/mcp.json`):
 1. Click the **MCP Servers** icon in Cline's top menu bar
 2. Select the **Configure** tab
 3. Click **Configure MCP Servers** to edit `cline_mcp_settings.json`
-4. Add the drawio server:
+4. Add the draw-in server:
 
 ```json
 {
   "mcpServers": {
-    "drawio": {
+    "draw-in": {
       "command": "npx",
-      "args": ["@next-ai-drawio/mcp-server@latest"]
+      "args": ["@draw-in/mcp-server@latest"]
     }
   }
 }
@@ -85,14 +85,14 @@ Add to Cursor MCP config (`~/.cursor/mcp.json`):
 ### Claude Code CLI
 
 ```bash
-claude mcp add drawio -- npx @next-ai-drawio/mcp-server@latest
+claude mcp add draw-in -- npx @draw-in/mcp-server@latest
 ```
 
 ### Other MCP Clients
 
 Use the standard MCP configuration with:
 - **Command**: `npx`
-- **Args**: `["@next-ai-drawio/mcp-server@latest"]`
+- **Args**: `["@draw-in/mcp-server@latest"]`
 
 ## Usage
 
@@ -157,9 +157,9 @@ For security-sensitive environments that require private deployment of draw.io:
 ```json
 {
   "mcpServers": {
-    "drawio": {
+    "draw-in": {
       "command": "npx",
-      "args": ["@next-ai-drawio/mcp-server@latest"],
+      "args": ["@draw-in/mcp-server@latest"],
       "env": { 
         "DRAWIO_BASE_URL": "https://drawio.your-company.com"
       }
@@ -186,9 +186,9 @@ Or set a custom port:
 ```json
 {
   "mcpServers": {
-    "drawio": {
+    "draw-in": {
       "command": "npx",
-      "args": ["@next-ai-drawio/mcp-server@latest"],
+      "args": ["@draw-in/mcp-server@latest"],
       "env": { "PORT": "6003" }
     }
   }

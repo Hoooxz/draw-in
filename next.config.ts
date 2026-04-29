@@ -4,8 +4,11 @@ import packageJson from "./package.json"
 const nextConfig: NextConfig = {
     /* config options here */
     output: "standalone",
-    // Support for subdirectory deployment (e.g., https://example.com/nextaidrawio)
-    // Set NEXT_PUBLIC_BASE_PATH environment variable to your subdirectory path (e.g., /nextaidrawio)
+    turbopack: {
+        root: process.cwd(),
+    },
+    // Support for subdirectory deployment (e.g., https://example.com/draw-in)
+    // Set NEXT_PUBLIC_BASE_PATH environment variable to your subdirectory path (e.g., /draw-in)
     basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
     env: {
         APP_VERSION: packageJson.version,

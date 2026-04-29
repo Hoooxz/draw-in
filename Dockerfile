@@ -31,12 +31,12 @@ ENV NEXT_PUBLIC_DRAWIO_BASE_URL=${NEXT_PUBLIC_DRAWIO_BASE_URL}
 ARG NEXT_PUBLIC_SHOW_ABOUT_AND_NOTICE=false
 ENV NEXT_PUBLIC_SHOW_ABOUT_AND_NOTICE=${NEXT_PUBLIC_SHOW_ABOUT_AND_NOTICE}
 
-# Build-time argument for subdirectory deployment (e.g., /nextaidrawio)
+# Build-time argument for subdirectory deployment (e.g., /draw-in)
 ARG NEXT_PUBLIC_BASE_PATH=""
 ENV NEXT_PUBLIC_BASE_PATH=${NEXT_PUBLIC_BASE_PATH}
 
-# Control sponsorship and self-hosting messaging in quota notifications.
-# Set NEXT_PUBLIC_SELFHOSTED="true" in self-hosted deployments to hide sponsorship/self-host links and related text in quota popups.
+# Control self-hosted quota messaging.
+# Set NEXT_PUBLIC_SELFHOSTED="true" in self-hosted deployments to show self-hosted quota guidance.
 ARG NEXT_PUBLIC_SELFHOSTED=""
 ENV NEXT_PUBLIC_SELFHOSTED="${NEXT_PUBLIC_SELFHOSTED}"
 
@@ -70,4 +70,3 @@ ENV HOSTNAME="0.0.0.0"
 
 # Start the application (HOSTNAME override needed for AWS App Runner)
 CMD ["sh", "-c", "HOSTNAME=0.0.0.0 exec node server.js"]
-

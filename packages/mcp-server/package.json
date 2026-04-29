@@ -1,11 +1,11 @@
 {
-    "name": "@next-ai-drawio/mcp-server",
+    "name": "@draw-in/mcp-server",
     "version": "0.2.0",
-    "description": "MCP server for Next AI Draw.io - AI-powered diagram generation with real-time browser preview",
+    "description": "MCP server for Draw In - AI-powered diagram generation with real-time browser preview",
     "type": "module",
     "main": "dist/index.js",
     "bin": {
-        "next-ai-drawio-mcp": "./dist/index.js"
+        "draw-in-mcp": "./dist/index.js"
     },
     "scripts": {
         "build": "tsc",
@@ -21,16 +21,16 @@
         "claude",
         "model-context-protocol"
     ],
-    "author": "DayuanJiang",
+    "author": "Hoooxz",
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/DayuanJiang/next-ai-draw-io",
+        "url": "https://github.com/Hoooxz/draw-in",
         "directory": "packages/mcp-server"
     },
-    "homepage": "https://next-ai-drawio.jiang.jp",
+    "homepage": "https://github.com/Hoooxz/draw-in/tree/main/packages/mcp-server",
     "bugs": {
-        "url": "https://github.com/DayuanJiang/next-ai-draw-io/issues"
+        "url": "https://github.com/Hoooxz/draw-in/issues"
     },
     "publishConfig": {
         "access": "public"

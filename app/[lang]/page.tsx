@@ -44,7 +44,7 @@ export default function Home() {
     // Load preferences from localStorage after mount
     useEffect(() => {
         // Restore saved locale and redirect if needed
-        const savedLocale = localStorage.getItem("next-ai-draw-io-locale")
+        const savedLocale = localStorage.getItem("draw-in-locale")
         if (savedLocale && i18n.locales.includes(savedLocale as Locale)) {
             const pathParts = pathname.split("/").filter(Boolean)
             const currentLocale = pathParts[0]
@@ -60,7 +60,7 @@ export default function Home() {
             setDrawioUi(savedUi)
         }
 
-        const savedDarkMode = localStorage.getItem("next-ai-draw-io-dark-mode")
+        const savedDarkMode = localStorage.getItem("draw-in-dark-mode")
         if (savedDarkMode !== null) {
             const isDark = savedDarkMode === "true"
             setDarkMode(isDark)
@@ -107,7 +107,7 @@ export default function Home() {
     const handleDarkModeChange = () => {
         const newValue = !darkMode
         setDarkMode(newValue)
-        localStorage.setItem("next-ai-draw-io-dark-mode", String(newValue))
+        localStorage.setItem("draw-in-dark-mode", String(newValue))
         document.documentElement.classList.toggle("dark", newValue)
         setIsDrawioReady(false)
         resetDrawioReady()

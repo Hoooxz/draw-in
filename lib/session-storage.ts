@@ -3,10 +3,9 @@ import { nanoid } from "nanoid"
 import type { Template } from "./template-storage"
 
 // Constants
-const DB_NAME = "next-ai-drawio"
+const DB_NAME = "draw-in"
 const DB_VERSION = 2
 const STORE_NAME = "sessions"
-const MIGRATION_FLAG = "next-ai-drawio-migrated-to-idb"
 const MAX_SESSIONS = 50
 
 // Types
@@ -358,73 +357,7 @@ export function sanitizeMessages(messages: unknown[]): StoredMessage[] {
         .filter((m): m is StoredMessage => m !== null)
 }
 
-// Migration from localStorage
+// New branded project: do not import localStorage data from the upstream app.
 export async function migrateFromLocalStorage(): Promise<string | null> {
-    if (typeof window === "undefined") return null
-    if (!isIndexedDBAvailable()) return null
-
-    // Check if already migrated
-    if (localStorage.getItem(MIGRATION_FLAG)) return null
-
-    try {
-        const savedMessages = localStorage.getItem("next-ai-draw-io-messages")
-        const savedSnapshots = localStorage.getItem(
-            "next-ai-draw-io-xml-snapshots",
-        )
-        const savedXml = localStorage.getItem("next-ai-draw-io-diagram-xml")
-
-        let newSessionId: string | null = null
-        let migrationSucceeded = false
-
-        if (savedMessages) {
-            const messages = JSON.parse(savedMessages)
-            if (Array.isArray(messages) && messages.length > 0) {
-                const sanitized = sanitizeMessages(messages)
-                const session: ChatSession = {
-                    id: nanoid(),
-                    title: extractTitle(sanitized),
-                    createdAt: Date.now(),
-                    updatedAt: Date.now(),
-                    messages: sanitized,
-                    xmlSnapshots: savedSnapshots
-                        ? JSON.parse(savedSnapshots)
-                        : [],
-                    diagramXml: savedXml || "",
-                }
-                const saved = await saveSession(session)
-                if (saved) {
-                    // Verify the session was actually written
-                    const verified = await getSession(session.id)
-                    if (verified) {
-                        newSessionId = session.id
-                        migrationSucceeded = true
-                    }
-                }
-            } else {
-                // Empty array or invalid data - nothing to migrate, mark as success
-                migrationSucceeded = true
-            }
-        } else {
-            // No data to migrate - mark as success
-            migrationSucceeded = true
-        }
-
-        // Only clean up old data if migration succeeded
-        if (migrationSucceeded) {
-            localStorage.setItem(MIGRATION_FLAG, "true")
-            localStorage.removeItem("next-ai-draw-io-messages")
-            localStorage.removeItem("next-ai-draw-io-xml-snapshots")
-            localStorage.removeItem("next-ai-draw-io-diagram-xml")
-        } else {
-            console.warn(
-                "Migration to IndexedDB failed - keeping localStorage data for retry",
-            )
-        }
-
-        return newSessionId
-    } catch (error) {
-        console.error("Migration failed:", error)
-        // Don't mark as migrated - allow retry on next load
-        return null
-    }
+    return null
 }

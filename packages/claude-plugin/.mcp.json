@@ -1,8 +1,8 @@
 {
     "mcpServers": {
-        "drawio": {
+        "draw-in": {
             "command": "npx",
-            "args": ["@next-ai-drawio/mcp-server@latest"]
+            "args": ["@draw-in/mcp-server@latest"]
         }
     }
 }

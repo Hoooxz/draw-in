@@ -1,4 +1,4 @@
-# Next AI Draw.io
+# Draw In
 
 <div align="center">
 
@@ -6,35 +6,24 @@
 
 English | [中文](./docs/cn/README_CN.md) | [日本語](./docs/ja/README_JA.md)
 
-[![TrendShift](https://trendshift.io/api/badge/repositories/15449)](https://next-ai-drawio.jiang.jp/)
-
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Next.js](https://img.shields.io/badge/Next.js-16.x-black)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.x-61dafb)](https://react.dev/)
-[![Sponsor](https://img.shields.io/badge/Sponsor-❤-ea4aaa)](https://github.com/sponsors/DayuanJiang)
-
-[![Live Demo](./public/live-demo-button.svg)](https://next-ai-drawio.jiang.jp/)
 
 </div>
 
 A Next.js web application that integrates AI capabilities with draw.io diagrams. Create, modify, and enhance diagrams through natural language commands and AI-assisted visualization.
 
-> Note: Thanks to <img src="https://raw.githubusercontent.com/DayuanJiang/next-ai-draw-io/main/public/doubao-color.png" alt="" height="20" /> [ByteDance Doubao](https://www.volcengine.com/activity/codingplan?ac=MMAP8JTTCAQ2&rc=Z9Z3LDTJ&utm_campaign=drawio&utm_content=drawio&utm_medium=devrel&utm_source=OWO&utm_term=drawio) sponsorship, the demo site now uses the powerful glm-4.7 model!
-
-
-https://github.com/user-attachments/assets/9d60a3e8-4a1c-4b5e-acbb-26af2d3eabd1
-
-
 
 ## Table of Contents
-- [Next AI Draw.io](#next-ai-drawio)
+- [Draw In](#draw-in)
   - [Table of Contents](#table-of-contents)
   - [Examples](#examples)
   - [Features](#features)
   - [MCP Server](#mcp-server)
     - [Claude Code CLI](#claude-code-cli)
   - [Getting Started](#getting-started)
-    - [Try it Online](#try-it-online)
+    - [Run Locally](#run-locally)
     - [Desktop Application](#desktop-application)
     - [Run with Docker](#run-with-docker)
     - [Installation](#installation)
@@ -46,7 +35,6 @@ https://github.com/user-attachments/assets/9d60a3e8-4a1c-4b5e-acbb-26af2d3eabd1
   - [How It Works](#how-it-works)
   - [Support \& Contact](#support--contact)
   - [FAQ](#faq)
-  - [Star History](#star-history)
 
 ## Examples
 
@@ -101,14 +89,14 @@ Here are some example prompts and their generated diagrams:
 
 ## MCP Server
 
-Use Next AI Draw.io with AI agents like Claude Desktop, Cursor, and VS Code via MCP (Model Context Protocol).
+Use Draw In with AI agents like Claude Desktop, Cursor, and VS Code via MCP (Model Context Protocol).
 
 ```json
 {
   "mcpServers": {
-    "drawio": {
+    "draw-in": {
       "command": "npx",
-      "args": ["@next-ai-drawio/mcp-server@latest"]
+      "args": ["@draw-in/mcp-server@latest"]
     }
   }
 }
@@ -117,7 +105,7 @@ Use Next AI Draw.io with AI agents like Claude Desktop, Cursor, and VS Code via 
 ### Claude Code CLI
 
 ```bash
-claude mcp add drawio -- npx @next-ai-drawio/mcp-server@latest
+claude mcp add draw-in -- npx @draw-in/mcp-server@latest
 ```
 
 Then ask Claude to create diagrams:
@@ -129,19 +117,13 @@ See the [MCP Server README](./packages/mcp-server/README.md) for VS Code, Cursor
 
 ## Getting Started
 
-### Try it Online
+### Run Locally
 
-No installation needed! Try the app directly on our demo site:
-
-[![Live Demo](./public/live-demo-button.svg)](https://next-ai-drawio.jiang.jp/)
-
-
-
-> **Bring Your Own API Key**: You can use your own API key to bypass usage limits on the demo site. Click the Settings icon in the chat panel to configure your provider and API key. Your key is stored locally in your browser and is never stored on the server.
+Run the development server after installation and open [http://localhost:6002](http://localhost:6002). You can configure your own provider and API key from the Settings dialog; keys are stored locally in your browser.
 
 ### Desktop Application
 
-Download the native desktop app for your platform from the [Releases page](https://github.com/DayuanJiang/next-ai-draw-io/releases):
+Download the native desktop app for your platform from the [Releases page](https://github.com/Hoooxz/draw-in/releases):
 
 Supported platforms: Windows, macOS, Linux.
 
@@ -154,8 +136,8 @@ Supported platforms: Windows, macOS, Linux.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/DayuanJiang/next-ai-draw-io
-cd next-ai-draw-io
+git clone https://github.com/Hoooxz/draw-in
+cd draw-in
 npm install
 cp env.example .env.local
 ```
@@ -178,7 +160,7 @@ You can deploy with one click using [Tencent EdgeOne Pages](https://pages.edgeon
 
 Deploy by this button: 
 
-[![Deploy to EdgeOne Pages](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?repository-url=https%3A%2F%2Fgithub.com%2FDayuanJiang%2Fnext-ai-draw-io)
+[![Deploy to EdgeOne Pages](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?repository-url=https%3A%2F%2Fgithub.com%2FHoooxz%2Fdraw-in)
 
 Check out the [Tencent EdgeOne Pages documentation](https://pages.edgeone.ai/document/deployment-overview) for more details.
 
@@ -186,7 +168,7 @@ Additionally, deploying through Tencent EdgeOne Pages will also grant you a [dai
 
 ### Deploy on Vercel 
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDayuanJiang%2Fnext-ai-draw-io)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHoooxz%2Fdraw-in)
 
 The easiest way to deploy is using [Vercel](https://vercel.com/new), the creators of Next.js. Be sure to **set the environment variables** in the Vercel dashboard as you did in your local `.env.local` file.
 
@@ -200,7 +182,7 @@ See the [Next.js deployment documentation](https://nextjs.org/docs/app/building-
 
 ## Multi-Provider Support
 
--   [ByteDance Doubao](https://www.volcengine.com/activity/codingplan?ac=MMAP8JTTCAQ2&rc=Z9Z3LDTJ&utm_campaign=drawio&utm_content=drawio&utm_medium=devrel&utm_source=OWO&utm_term=drawio)
+-   ByteDance Doubao
 -   AWS Bedrock (default)
 -   OpenAI
 -   Anthropic
@@ -242,20 +224,10 @@ Diagrams are represented as XML that can be rendered in draw.io. The AI processe
 
 ## Support & Contact
 
-**Special thanks to [ByteDance Doubao](https://www.volcengine.com/activity/codingplan?ac=MMAP8JTTCAQ2&rc=Z9Z3LDTJ&utm_campaign=drawio&utm_content=drawio&utm_medium=devrel&utm_source=OWO&utm_term=drawio) for sponsoring the API token usage of the demo site!** Register on the ARK platform to get 500K free tokens for all models!
-
-If you find this project useful, please consider [sponsoring](https://github.com/sponsors/DayuanJiang) to help me host the live demo site!
-
-For support or inquiries, please open an issue on the GitHub repository or contact the maintainer at:
-
--   Email: me[at]jiang.jp
+For support or inquiries, please open an issue in the [GitHub repository](https://github.com/Hoooxz/draw-in/issues).
 
 ## FAQ
 
 See [FAQ](./docs/en/FAQ.md) for common issues and solutions.
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=DayuanJiang/next-ai-draw-io&type=date&legend=top-left)](https://www.star-history.com/#DayuanJiang/next-ai-draw-io&type=date&legend=top-left)
 
 ---

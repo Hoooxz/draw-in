@@ -191,17 +191,15 @@
         "tpmLimit": "レート制限",
         "tpmMessage": "リクエストが多すぎます。しばらくお待ちください。",
         "tpmMessageDetailed": "レート制限に達しました（{limit}トークン/分）。{seconds}秒待ってからもう一度リクエストしてください。",
-        "messageApi": "今日のデモ利用上限に達してしまったようです。楽しんでいただけて本当に嬉しいです。このデモはByteDance Doubaoのご厚意により提供されていますが、皆様に公平にご利用いただくため、少し制限を設けさせていただいております。",
+        "messageApi": "本日のリクエスト上限に達しました。独自のモデルプロバイダーを設定するか、Draw In をセルフホストして独自のクォータを使用してください。",
         "messageApiSelfHosted": null,
-        "messageToken": "今日のトークン利用上限に達してしまったようです。楽しんでいただけて本当に嬉しいです。このデモはByteDance Doubaoのご厚意により提供されていますが、皆様に公平にご利用いただくため、少し制限を設けさせていただいております。",
+        "messageToken": "本日のトークン上限に達しました。独自のモデルプロバイダーを設定するか、Draw In をセルフホストして独自のクォータを使用してください。",
         "messageTokenSelfHosted": null,
         "tip": "<strong>ヒント：</strong>独自の API キーを使用する（設定アイコンをクリック）か、プロジェクトをセルフホストしてこれらの制限を回避できます。",
         "tipSelfHosted": "<strong>ヒント：</strong>設定で独自の API キーを設定することで、引き続きサービスをご利用いただけます。",
         "reset": "制限は明日リセットされます。ご理解ありがとうございます。",
-        "doubaoSponsorship": "<a href=\"{link}\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:text-foreground\">こちらから登録</a>すると、各モデル（Doubao、DeepSeek、Kimi含む）で50万トークンを無料で取得できます。モデル設定でAPIキーを設定してください。",
         "configModel": "APIキーを使用",
         "selfHost": "セルフホスト",
-        "sponsor": "スポンサー",
         "learnMore": "詳細 →",
         "usedOf": "{used}/{limit}"
     },
@@ -248,9 +246,8 @@
         "successMessage": "ダイアグラムの表示に成功しました。"
     },
     "about": {
-        "modelChange": "モデル変更と利用制限について",
+        "modelChange": "モデル設定と使用制限",
         "walletCrying": "（別名：お財布が悲鳴を上げています）",
-        "seekingSponsorship": "スポンサー募集",
         "contactMe": "お問い合わせ",
         "usageNotice": "利用量の増加に伴い、コスト削減のためモデルを Claude から minimax-m2 に変更し、いくつかの利用制限を設けました。詳細は概要ページをご覧ください。"
     },

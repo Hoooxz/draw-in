@@ -1,12 +1,15 @@
 import type { MetadataRoute } from "next"
+import { getPublicUrl } from "@/lib/branding"
 
 export default function robots(): MetadataRoute.Robots {
+    const sitemap = getPublicUrl("/sitemap.xml")
+
     return {
         rules: {
             userAgent: "*",
             allow: "/",
             disallow: "/api/",
         },
-        sitemap: "https://next-ai-drawio.jiang.jp/sitemap.xml",
+        ...(sitemap && { sitemap }),
     }
 }
